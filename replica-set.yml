@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: tomcat-rs1
+ labels:
+  type: webserver
+  author: padmini
+spec:
+ replicas: 4
+ selector:
+  matchLabels:
+   type: webserver1
+ template:
+  metadata:
+   name: tomcat-pod
+   labels:
+    type: webserver
+  spec:
+   containers:
+    - name: mywebserver
+      image: tomcat
+      ports:
+       - containerPort: 8080
+         hostPort: 9090
