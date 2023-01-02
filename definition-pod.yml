@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+ name: nginx-pod
+ labels:
+  author: padmini
+  type: reverse-proxy
+spec:
+ containers: 
+  - name: appserver
+    image: nginx
